@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    box-sizing: border-box;
+}
+
+img,
+svg,
+frame {
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul,
+ul,
+li {
+    list-style: none;
+}

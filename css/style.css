@@ -1,0 +1,267 @@
+@import url('reset.css');
+@import url('burger-menu.css');
+
+:root {
+    font-size: 10px;
+    --h1: clamp(3.6rem, 5vw, 4.8rem);
+    --h2: clamp(2.4rem, 4vw, 3.6rem);
+    --p: clamp(1.4rem, 2.5vw, 2.4rem);
+
+    --font-family-1: 'Lora', serif;
+    --font-family-2: 'Montserrat', sans-serif;
+    --font-family-3: 'Crimson Pro', serif;
+
+    --primary-color: #181719;
+
+    --font-color-1: white;
+    --font-color-2: #a9a9a9;
+    --font-color-3: #828282;
+}
+
+body {
+    background-color: var(--primary-color);
+    color: var(--font-color-1);
+}
+
+h1 {
+    font-size: var(--h1);
+}
+
+h2 {
+    font-size: var(--h2);
+}
+
+p {
+    font-size: var(--p);
+}
+
+.master-container {
+    display: grid;
+    grid-template-columns: 1fr 90% 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: '. content .';
+    min-height: 100vh;
+}
+
+.header {
+    grid-area: content;
+    grid-row: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2rem 0;
+}
+
+.header > .header__text {
+    border: 1px solid var(--font-color-1);
+    font-family: var(--font-family-3);
+    text-transform: uppercase;
+    padding: 1rem;
+}
+
+.nav__desktop {
+    display: none;
+}
+
+.nav__desktop,
+#menu {
+    font-size: 1.8rem;
+    font-family: var(--font-family-2);
+    transition: all 0.3s ease-in-out;
+}
+
+#menu {
+    position: absolute;
+    background: var(--primary-color);
+    width: 100vw;
+    height: 100vh;
+    right: 0%;
+    top: -200%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    z-index: 1;
+}
+
+.nav__desktop a,
+#menu a {
+    color: white;
+    padding: 1rem 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.nav__desktop a:not(:first-child) {
+    margin-left: 3rem;
+}
+
+.nav__desktop a:not(:last-child) {
+    margin-right: 3rem;
+}
+
+.nav__desktop a:hover,
+#menu a:hover {
+    text-decoration: underline;
+    color: var(--font-color-3);
+}
+
+#buger input:checked ~ #menu {
+    top: 0%;
+}
+
+.main {
+    grid-area: content;
+    grid-row: 2;
+}
+
+.section__div-text {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.section__div-text h1 {
+    font-weight: 500;
+}
+
+.section__div-text p {
+    font-weight: 400;
+    width: 25ch;
+}
+
+.section__div-a {
+    display: flex;
+    align-items: baseline;
+    gap: 1.5rem;
+}
+
+.section .link-read {
+    font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+    color: var(--font-color-1);
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+.section__div-img {
+    position: relative;
+}
+
+.section__div-img > img {
+    max-width: 76.8rem;
+}
+
+.card {
+    background-color: var(--primary-color);
+    min-width: 30rem;
+    padding: 2rem;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    position: absolute;
+    top: 100%;
+    left: 53%;
+    transform: translate(-50%, -50%);
+}
+
+.card__div-a {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+    gap: 2rem;
+}
+
+.card__div-a img {
+    width: 4.2rem;
+    border-radius: 50%;
+}
+
+.card__div-a .name {
+    font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+    font-weight: 500;
+}
+
+.card__div-a .profession {
+    font-size: clamp(1.2rem, 2.5vw, 1.4rem);
+    color: var(--font-color-3);
+}
+
+.card__description {
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    font-weight: 700;
+}
+
+/* Fonts */
+.section h1,
+.section .card__description {
+    font-family: var(--font-family-1);
+}
+
+.section p,
+.section .link-read,
+.card__div-a,
+.footer {
+    font-family: var(--font-family-2);
+}
+/* ------ */
+
+.footer {
+    grid-area: content;
+    grid-row: 3;
+    color: var(--font-color-2);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.footer a {
+    color: var(--font-color-2);
+    font-size: 1.4rem;
+}
+
+.footer strong {
+    text-decoration: underline;
+    font-weight: 700;
+}
+
+@media (min-width: 768px) {
+    .section img {
+        max-width: 82rem;
+    }
+
+    #navigation {
+        display: none;
+    }
+
+    .nav__desktop {
+        display: block;
+    }
+
+    .nav__desktop ul {
+        display: flex;
+    }
+}
+
+@media (min-width: 1024px) {
+    .section {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 5rem;
+        gap: 5rem;
+    }
+
+    .card {
+        left: 60%;
+    }
+}
+
+@media (min-width: 1220px) {
+    .card {
+        left: 75%;
+    }
+}
+
+@media (min-width: 1440px) {
+    .master-container {
+        grid-template-columns: 1fr 1320px 1fr;
+    }
+}
